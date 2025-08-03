@@ -910,23 +910,23 @@ export default function DonorsPage() {
                         {/* Add Calendar Item */}
                         <div className="space-y-2 p-3 rounded-lg glass-morphism">
                           <p className="text-xs text-white/80 font-bold">Add Calendar Item:</p>
-                          <div className="flex gap-2">
+                          <div className="grid grid-cols-12 gap-2">
                             <Input
                               value={newCalendarItem.title}
                               onChange={(e) => setNewCalendarItem({...newCalendarItem, title: e.target.value})}
                               placeholder="Event title..."
-                              className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold flex-1"
+                              className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold col-span-6"
                             />
                             <Input
                               type="date"
                               value={newCalendarItem.date}
                               onChange={(e) => setNewCalendarItem({...newCalendarItem, date: e.target.value})}
-                              className="glass-morphism border-white/20 text-white font-bold"
+                              className="glass-morphism border-white/20 text-white font-bold col-span-3"
                             />
                             <select
                               value={newCalendarItem.type}
                               onChange={(e) => setNewCalendarItem({...newCalendarItem, type: e.target.value as any})}
-                              className="px-3 py-2 rounded-md border border-white/20 bg-white/5 text-white font-bold"
+                              className="px-3 py-2 rounded-md border border-white/20 bg-white/5 text-white font-bold col-span-2"
                             >
                               <option value="reminder">Reminder</option>
                               <option value="meeting">Meeting</option>
@@ -935,7 +935,7 @@ export default function DonorsPage() {
                             </select>
                             <Button
                               onClick={handleAddCalendarItem}
-                              className="glass-button"
+                              className="glass-button col-span-1"
                               disabled={!newCalendarItem.title.trim() || !newCalendarItem.date}
                             >
                               <Plus className="h-4 w-4 text-white" />
