@@ -28,7 +28,6 @@ import {
   X,
   MessageSquare,
   Target,
-  Heart,
   Clock
 } from "lucide-react"
 
@@ -42,7 +41,6 @@ interface ExtendedDonor extends Donor {
     summary: string
   }>
   plans?: string
-  thoughts?: string
 }
 
 // Hardcoded donor data with notes
@@ -62,8 +60,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2024-01-10"), type: "call", summary: "Discussed impact of her previous donations" },
       { id: 3, date: new Date("2023-12-05"), type: "meeting", summary: "Annual donor appreciation dinner - brought her daughter" }
     ],
-    plans: "Schedule quarterly check-ins. Invite to student showcase in March.",
-    thoughts: "Consider for board position in 2025. Very engaged and brings valuable perspective."
+    plans: "Schedule quarterly check-ins. Invite to student showcase in March."
   },
   {
     id: 2,
@@ -80,8 +77,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2024-01-05"), type: "email", summary: "Sent proposal for tech mentorship program" },
       { id: 3, date: new Date("2023-11-15"), type: "meeting", summary: "Tour of tutoring facilities with his team" }
     ],
-    plans: "Propose partnership for summer coding camp. Connect with our IT needs assessment.",
-    thoughts: "Could be instrumental in modernizing our tech infrastructure. Has connections in Silicon Valley."
+    plans: "Propose partnership for summer coding camp. Connect with our IT needs assessment."
   },
   {
     id: 3,
@@ -98,8 +94,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-12-01"), type: "email", summary: "Submitted annual impact report" },
       { id: 3, date: new Date("2023-10-15"), type: "meeting", summary: "Site visit from foundation board members" }
     ],
-    plans: "Prepare Q2 report by April 15. Apply for capacity building grant.",
-    thoughts: "Our most reliable institutional funder. Must maintain excellent reporting standards."
+    plans: "Prepare Q2 report by April 15. Apply for capacity building grant."
   },
   {
     id: 4,
@@ -116,8 +111,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-11-20"), type: "meeting", summary: "Volunteered at career day event" },
       { id: 3, date: new Date("2023-10-05"), type: "call", summary: "Offered to conduct mock interviews" }
     ],
-    plans: "Engage in volunteer recruitment committee. Feature in donor spotlight.",
-    thoughts: "Bridge between donor and volunteer. Her professional network could be valuable."
+    plans: "Engage in volunteer recruitment committee. Feature in donor spotlight."
   },
   {
     id: 5,
@@ -134,8 +128,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-09-10"), type: "email", summary: "Sent newsletter with student success stories" },
       { id: 3, date: new Date("2023-06-15"), type: "call", summary: "Birthday call - shared memories of teaching" }
     ],
-    plans: "Send quarterly updates on reading program. Invite to volunteer as reading tutor.",
-    thoughts: "Loyal supporter with deep commitment to education. Consider legacy giving conversation."
+    plans: "Send quarterly updates on reading program. Invite to volunteer as reading tutor."
   },
   {
     id: 6,
@@ -152,8 +145,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2024-01-15"), type: "meeting", summary: "Planning meeting for employee volunteer day" },
       { id: 3, date: new Date("2023-12-10"), type: "email", summary: "Renewed annual partnership agreement" }
     ],
-    plans: "Coordinate spring volunteer day. Submit proposal for increased support in new fiscal year.",
-    thoughts: "Growing relationship with potential for significant expansion. CEO is personally invested."
+    plans: "Coordinate spring volunteer day. Submit proposal for increased support in new fiscal year."
   },
   {
     id: 7,
@@ -170,8 +162,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-11-30"), type: "meeting", summary: "Spoke at parent information night" },
       { id: 3, date: new Date("2023-09-20"), type: "call", summary: "Discussed creating named scholarship" }
     ],
-    plans: "Finalize scholarship criteria. Invite to graduation ceremony as keynote speaker.",
-    thoughts: "Powerful advocate in Latino community. Her story resonates with our families."
+    plans: "Finalize scholarship criteria. Invite to graduation ceremony as keynote speaker."
   },
   {
     id: 8,
@@ -188,8 +179,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-09-15"), type: "meeting", summary: "Judged student business pitch event" },
       { id: 3, date: new Date("2023-07-20"), type: "email", summary: "Offered internships at his company" }
     ],
-    plans: "Develop formal internship partnership. Explore young entrepreneurs program.",
-    thoughts: "Natural mentor figure. His business network could open doors for students."
+    plans: "Develop formal internship partnership. Explore young entrepreneurs program."
   },
   {
     id: 9,
@@ -206,8 +196,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-12-05"), type: "meeting", summary: "Bank staff volunteered for money matters workshop" },
       { id: 3, date: new Date("2023-10-20"), type: "email", summary: "Invited to apply for community grant" }
     ],
-    plans: "Submit grant for expanded financial education. Arrange student field trip to bank.",
-    thoughts: "Stable corporate partner with aligned values. Potential for multi-year commitment."
+    plans: "Submit grant for expanded financial education. Arrange student field trip to bank."
   },
   {
     id: 10,
@@ -224,8 +213,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-11-10"), type: "meeting", summary: "Conducted health workshop for families" },
       { id: 3, date: new Date("2023-09-05"), type: "call", summary: "Discussed mental health support needs" }
     ],
-    plans: "Partner on wellness initiative. Apply for health-focused grant together.",
-    thoughts: "Brings unique health perspective. Could help address holistic student needs."
+    plans: "Partner on wellness initiative. Apply for health-focused grant together."
   },
   {
     id: 11,
@@ -242,8 +230,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2024-01-10"), type: "meeting", summary: "CEO toured facilities with leadership team" },
       { id: 3, date: new Date("2023-11-25"), type: "email", summary: "Expressed interest in creating green jobs pipeline" }
     ],
-    plans: "Develop environmental science curriculum. Create summer internship program.",
-    thoughts: "Major growth potential. CEO's personal connection drives deep commitment."
+    plans: "Develop environmental science curriculum. Create summer internship program."
   },
   {
     id: 12,
@@ -260,8 +247,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-10-01"), type: "meeting", summary: "Hosted students for career shadow day" },
       { id: 3, date: new Date("2023-08-20"), type: "call", summary: "Offered apprenticeship opportunities" }
     ],
-    plans: "Formalize apprenticeship program. Feature in employer spotlight.",
-    thoughts: "Practical supporter who provides real job opportunities. Key to workforce development."
+    plans: "Formalize apprenticeship program. Feature in employer spotlight."
   },
   {
     id: 13,
@@ -278,8 +264,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-11-30"), type: "email", summary: "Submitted comprehensive impact report" },
       { id: 3, date: new Date("2023-09-15"), type: "meeting", summary: "Trustees toured facilities and met students" }
     ],
-    plans: "Prepare for May trustee meeting. Document student outcomes meticulously.",
-    thoughts: "Largest institutional funder. Maintaining trust requires exceptional stewardship."
+    plans: "Prepare for May trustee meeting. Document student outcomes meticulously."
   },
   {
     id: 14,
@@ -296,8 +281,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-10-20"), type: "meeting", summary: "Presented renovation concepts to board" },
       { id: 3, date: new Date("2023-08-15"), type: "email", summary: "Volunteered to lead design thinking workshop" }
     ],
-    plans: "Engage in facility planning committee. Explore capital campaign leadership.",
-    thoughts: "Brings unique design perspective. Could transform our physical spaces."
+    plans: "Engage in facility planning committee. Explore capital campaign leadership."
   },
   {
     id: 15,
@@ -314,8 +298,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-12-12"), type: "meeting", summary: "Signed MOU for ongoing partnership" },
       { id: 3, date: new Date("2023-10-30"), type: "email", summary: "Recruited 15 employee volunteers" }
     ],
-    plans: "Expand volunteer tutoring program. Apply for disaster preparedness grant.",
-    thoughts: "Model corporate partner with engaged employees. Relationship deepening each year."
+    plans: "Expand volunteer tutoring program. Apply for disaster preparedness grant."
   },
   {
     id: 16,
@@ -332,8 +315,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-11-05"), type: "meeting", summary: "Advised on legal compliance issues" },
       { id: 3, date: new Date("2023-09-22"), type: "call", summary: "Offered to mentor pre-law students" }
     ],
-    plans: "Engage in governance committee. Cultivate for planned giving.",
-    thoughts: "Strategic ally with legal expertise. Natural board candidate when opening arises."
+    plans: "Engage in governance committee. Cultivate for planned giving."
   },
   {
     id: 17,
@@ -350,8 +332,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2024-01-15"), type: "email", summary: "Submitted environmental impact assessment" },
       { id: 3, date: new Date("2023-11-20"), type: "meeting", summary: "Presented sustainability plan to board" }
     ],
-    plans: "Implement composting program. Document environmental education outcomes.",
-    thoughts: "Pushing us toward sustainability. Aligns with younger donors' values."
+    plans: "Implement composting program. Document environmental education outcomes."
   },
   {
     id: 18,
@@ -368,8 +349,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-10-10"), type: "meeting", summary: "Led student investment club session" },
       { id: 3, date: new Date("2023-08-30"), type: "email", summary: "Proposed stock market simulation program" }
     ],
-    plans: "Launch investment club with her guidance. Feature in alumni success stories.",
-    thoughts: "Role model for students. Her local roots make her relatable and inspiring."
+    plans: "Launch investment club with her guidance. Feature in alumni success stories."
   },
   {
     id: 19,
@@ -386,8 +366,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-10-15"), type: "email", summary: "Thanked for supporting peer mediation training" },
       { id: 3, date: new Date("2023-06-20"), type: "call", summary: "Annual check-in, brief but warm" }
     ],
-    plans: "Continue gentle cultivation. Honor his son's memory in program naming.",
-    thoughts: "Deeply personal connection. Handle with extra sensitivity and respect."
+    plans: "Continue gentle cultivation. Honor his son's memory in program naming."
   },
   {
     id: 20,
@@ -404,8 +383,7 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2023-11-15"), type: "email", summary: "Submitted 50-page grant proposal" },
       { id: 3, date: new Date("2023-09-30"), type: "meeting", summary: "Program officer site visit with external evaluator" }
     ],
-    plans: "Maintain exceptional program quality. Prepare for mid-year evaluation visit.",
-    thoughts: "Prestigious funder that validates our work. Success here opens other doors."
+    plans: "Maintain exceptional program quality. Prepare for mid-year evaluation visit."
   },
 ]
 
@@ -518,10 +496,10 @@ export default function DonorsPage() {
             placeholder="Search donors by name or organization..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 glass-morphism dark:glass-morphism-dark border-white/20 text-white placeholder:text-white/60 font-bold"
+            className="pl-10 glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold"
           />
         </div>
-        <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white transition-all duration-300">
+        <Button className="glass-button text-white">
           <Plus className="mr-2 h-4 w-4 medallion-glow" />
           Add New Donor
         </Button>
@@ -529,7 +507,7 @@ export default function DonorsPage() {
 
       {/* Quick Stats */}
       <div className="grid gap-4 md:grid-cols-4">
-        <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
+        <Card className="glass-card apple-shadow">
           <CardHeader className="pb-2">
             <div className="flex items-center gap-2">
               <div className="p-2 glass-button">
@@ -543,7 +521,7 @@ export default function DonorsPage() {
           </CardContent>
         </Card>
 
-        <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
+        <Card className="glass-card apple-shadow">
           <CardHeader className="pb-2">
             <div className="flex items-center gap-2">
               <div className="p-2 glass-button">
@@ -557,7 +535,7 @@ export default function DonorsPage() {
           </CardContent>
         </Card>
 
-        <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
+        <Card className="glass-card apple-shadow">
           <CardHeader className="pb-2">
             <div className="flex items-center gap-2">
               <div className="p-2 glass-button">
@@ -571,7 +549,7 @@ export default function DonorsPage() {
           </CardContent>
         </Card>
 
-        <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
+        <Card className="glass-card apple-shadow">
           <CardHeader className="pb-2">
             <div className="flex items-center gap-2">
               <div className="p-2 glass-button">
@@ -589,7 +567,7 @@ export default function DonorsPage() {
       {/* Split View: Donor List and Details */}
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Donor List */}
-        <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300 h-[800px] overflow-hidden">
+        <Card className="glass-card apple-shadow h-[800px] overflow-hidden">
           <CardHeader className="border-b border-white/20">
             <CardTitle className="text-xl font-bold text-white">
               All Donors ({filteredDonors.length})
@@ -647,7 +625,7 @@ export default function DonorsPage() {
         </Card>
 
         {/* Donor Details */}
-        <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300 h-[800px] overflow-hidden">
+        <Card className="glass-card apple-shadow h-[800px] overflow-hidden">
           {selectedDonor ? (
             <>
               <CardHeader className="border-b border-white/20">
@@ -672,7 +650,7 @@ export default function DonorsPage() {
                   <Button
                     onClick={isEditing ? handleSave : handleEdit}
                     size="icon"
-                    className="glass-button glass-hover"
+                    className="glass-button"
                   >
                     {isEditing ? (
                       <Save className="h-4 w-4 text-emerald-400" />
@@ -696,7 +674,7 @@ export default function DonorsPage() {
                 <div className="mt-6 space-y-6">
                   {/* Donation Summary */}
                   <div className="grid gap-4 md:grid-cols-3">
-                    <div className="p-4 rounded-xl glass-morphism dark:glass-morphism-dark">
+                    <div className="p-4 rounded-xl glass-morphism">
                       <p className="text-sm font-bold text-white/80">Total Given</p>
                       <p className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                         {formatCurrency(selectedDonor.totalGiven)}
@@ -704,13 +682,13 @@ export default function DonorsPage() {
                     </div>
                     {selectedDonor.lastGiftDate && (
                       <>
-                        <div className="p-4 rounded-xl glass-morphism dark:glass-morphism-dark">
+                        <div className="p-4 rounded-xl glass-morphism">
                           <p className="text-sm font-bold text-white/80">Last Gift</p>
                           <p className="text-lg font-bold text-white">
                             {selectedDonor.lastGiftAmount && formatCurrency(selectedDonor.lastGiftAmount)}
                           </p>
                         </div>
-                        <div className="p-4 rounded-xl glass-morphism dark:glass-morphism-dark">
+                        <div className="p-4 rounded-xl glass-morphism">
                           <p className="text-sm font-bold text-white/80">Last Gift Date</p>
                           <p className="text-lg font-bold text-white">
                             {formatDate(selectedDonor.lastGiftDate)}
@@ -763,7 +741,7 @@ export default function DonorsPage() {
                         placeholder="Add notes about this donor..."
                       />
                     ) : (
-                      <p className="text-white/90 p-3 rounded-lg glass-morphism dark:glass-morphism-dark">
+                      <p className="text-white/90 p-3 rounded-lg glass-morphism">
                         {selectedDonor.notes || 'No notes yet.'}
                       </p>
                     )}
@@ -783,31 +761,12 @@ export default function DonorsPage() {
                         placeholder="Future plans for this donor..."
                       />
                     ) : (
-                      <p className="text-white/90 p-3 rounded-lg glass-morphism dark:glass-morphism-dark">
+                      <p className="text-white/90 p-3 rounded-lg glass-morphism">
                         {selectedDonor.plans || 'No plans documented.'}
                       </p>
                     )}
                   </div>
 
-                  {/* Thoughts Section */}
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                      <Heart className="h-5 w-5 text-rose-400" />
-                      Thoughts
-                    </h3>
-                    {isEditing ? (
-                      <Textarea
-                        value={editedDonor?.thoughts || ''}
-                        onChange={(e: any) => setEditedDonor({...editedDonor!, thoughts: e.target.value})}
-                        rows={2}
-                        placeholder="Personal thoughts and insights..."
-                      />
-                    ) : (
-                      <p className="text-white/90 p-3 rounded-lg glass-morphism dark:glass-morphism-dark">
-                        {selectedDonor.thoughts || 'No thoughts recorded.'}
-                      </p>
-                    )}
-                  </div>
 
                   {/* Interactions History */}
                   <div>
@@ -817,7 +776,7 @@ export default function DonorsPage() {
                     </h3>
                     <div className="space-y-2 mb-4">
                       {selectedDonor.interactions?.map((interaction) => (
-                        <div key={interaction.id} className="p-3 rounded-lg glass-morphism dark:glass-morphism-dark">
+                        <div key={interaction.id} className="p-3 rounded-lg glass-morphism">
                           <div className="flex items-start justify-between">
                             <div className="flex items-start gap-2">
                               <div className={`p-1.5 rounded glass-button ${
@@ -845,12 +804,12 @@ export default function DonorsPage() {
                         value={newNote}
                         onChange={(e) => setNewNote(e.target.value)}
                         placeholder="Add a quick note..."
-                        className="glass-morphism dark:glass-morphism-dark border-white/20 text-white placeholder:text-white/60 font-bold"
+                        className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold"
                         onKeyPress={(e) => e.key === 'Enter' && handleAddNote()}
                       />
                       <Button
                         onClick={handleAddNote}
-                        className="glass-button glass-hover"
+                        className="glass-button"
                         disabled={!newNote.trim()}
                       >
                         <Plus className="h-4 w-4 text-white" />
@@ -860,15 +819,15 @@ export default function DonorsPage() {
 
                   {/* Actions */}
                   <div className="flex gap-3 pt-4">
-                    <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white">
+                    <Button className="glass-button text-white">
                       <Phone className="mr-2 h-4 w-4 medallion-glow" />
                       Call Donor
                     </Button>
-                    <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white">
+                    <Button className="glass-button text-white">
                       <Mail className="mr-2 h-4 w-4 medallion-glow" />
                       Send Email
                     </Button>
-                    <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white">
+                    <Button className="glass-button text-white">
                       <Calendar className="mr-2 h-4 w-4 medallion-glow" />
                       Schedule Meeting
                     </Button>
