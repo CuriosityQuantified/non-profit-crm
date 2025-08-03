@@ -126,9 +126,11 @@ export default function DashboardPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-2xl font-bold text-white">Monthly Raised</CardTitle>
-            <div className="p-2 glass-button">
-              <DollarSign className="h-4 w-4 text-emerald-400" />
+            <div className="flex items-center gap-3">
+              <div className="p-2 glass-button">
+                <DollarSign className="h-5 w-5 text-emerald-400 medallion-glow" />
+              </div>
+              <CardTitle className="text-2xl font-bold text-white">Monthly Raised</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
@@ -147,15 +149,17 @@ export default function DashboardPage() {
 
         <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-2xl font-bold text-white">Active Givers</CardTitle>
-            <div className="p-2 glass-button">
-              <Users className="h-4 w-4 text-sky-400" />
+            <div className="flex items-center gap-3">
+              <div className="p-2 glass-button">
+                <Users className="h-5 w-5 text-sky-400 medallion-glow" />
+              </div>
+              <CardTitle className="text-2xl font-bold text-white">Active Givers</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">{metrics.activeGivers}</div>
             <p className="text-xs text-white font-bold flex items-center">
-              <ArrowUp className="h-3 w-3 mr-1 text-green-400" />
+              <ArrowUp className="h-3 w-3 mr-1 text-green-400 medallion-glow" />
               +12 from last month
             </p>
           </CardContent>
@@ -163,15 +167,17 @@ export default function DashboardPage() {
 
         <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-2xl font-bold text-white">Average Gift</CardTitle>
-            <div className="p-2 glass-button">
-              <TrendingUp className="h-4 w-4 text-teal-400" />
+            <div className="flex items-center gap-3">
+              <div className="p-2 glass-button">
+                <TrendingUp className="h-5 w-5 text-teal-400 medallion-glow" />
+              </div>
+              <CardTitle className="text-2xl font-bold text-white">Average Gift</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">{formatCurrency(metrics.averageGift)}</div>
             <p className="text-xs text-white font-bold flex items-center">
-              <ArrowUp className="h-3 w-3 mr-1 text-green-400" />
+              <ArrowUp className="h-3 w-3 mr-1 text-green-400 medallion-glow" />
               +8.2% from last month
             </p>
           </CardContent>
@@ -179,15 +185,17 @@ export default function DashboardPage() {
 
         <Card className="glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-2xl font-bold text-white">Tasks Today</CardTitle>
-            <div className="p-2 glass-button">
-              <Calendar className="h-4 w-4 text-blue-700" />
+            <div className="flex items-center gap-3">
+              <div className="p-2 glass-button">
+                <Calendar className="h-5 w-5 text-cyan-400 medallion-glow" />
+              </div>
+              <CardTitle className="text-2xl font-bold text-white">Tasks Today</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">{todaysPriorities.length}</div>
             <p className="text-xs text-white font-bold flex items-center">
-              <AlertCircle className="h-3 w-3 mr-1 text-blue-500" />
+              <AlertCircle className="h-3 w-3 mr-1 text-rose-400 medallion-glow" />
               2 high priority
             </p>
           </CardContent>
@@ -200,7 +208,7 @@ export default function DashboardPage() {
           <CardHeader className="border-b border-white/20 dark:border-white/10">
             <CardTitle className="flex items-center gap-2 text-white text-2xl font-bold">
               <div className="p-1.5 glass-button rounded-lg">
-                <Target className="h-4 w-4 text-teal-400" />
+                <Target className="h-5 w-5 text-teal-400 medallion-glow" />
               </div>
               Today's Priorities
             </CardTitle>
@@ -215,12 +223,12 @@ export default function DashboardPage() {
                   <div className="flex items-center space-x-4">
                     <div className={`rounded-full p-2 glass-button ${
                       task.priority === 'high' 
-                        ? 'text-blue-600' 
-                        : 'text-blue-400'
+                        ? 'text-rose-400' 
+                        : 'text-amber-400'
                     }`}>
-                      {task.type === 'call' && <Phone className="h-4 w-4" />}
-                      {task.type === 'email' && <Mail className="h-4 w-4" />}
-                      {task.type === 'meeting' && <Calendar className="h-4 w-4" />}
+                      {task.type === 'call' && <Phone className="h-5 w-5 medallion-glow" />}
+                      {task.type === 'email' && <Mail className="h-5 w-5 medallion-glow" />}
+                      {task.type === 'meeting' && <Calendar className="h-5 w-5 medallion-glow" />}
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">{task.title}</p>
@@ -247,7 +255,7 @@ export default function DashboardPage() {
           <CardHeader className="border-b border-white/20 dark:border-white/10">
             <CardTitle className="flex items-center gap-2 text-white text-2xl font-bold">
               <div className="p-1.5 glass-button rounded-lg">
-                <Users className="h-4 w-4 text-sky-400" />
+                <Users className="h-5 w-5 text-sky-400 medallion-glow" />
               </div>
               Recent Donors
             </CardTitle>
@@ -264,7 +272,7 @@ export default function DashboardPage() {
                     <p className="text-xs text-white font-bold flex items-center gap-1">
                       {donor.organization ? (
                         <>
-                          <Building2 className="h-3 w-3" />
+                          <Building2 className="h-3 w-3 medallion-glow" />
                           {donor.organization}
                         </>
                       ) : (
@@ -277,7 +285,7 @@ export default function DashboardPage() {
                       {formatCurrency(donor.amount)}
                     </p>
                     <p className="text-xs text-white font-bold flex items-center justify-end">
-                      <Clock className="h-3 w-3 mr-1" />
+                      <Clock className="h-3 w-3 mr-1 medallion-glow" />
                       {formatDate(donor.date)}
                     </p>
                   </div>
@@ -293,7 +301,7 @@ export default function DashboardPage() {
         <CardHeader className="border-b border-white/20 dark:border-white/10">
           <CardTitle className="flex items-center gap-2 text-white text-2xl font-bold">
             <div className="p-1.5 glass-button rounded-lg">
-              <Calendar className="h-4 w-4 text-blue-700" />
+              <Calendar className="h-5 w-5 text-cyan-400 medallion-glow" />
             </div>
             Upcoming This Week
           </CardTitle>
@@ -308,12 +316,12 @@ export default function DashboardPage() {
                 <div className="flex items-start space-x-3">
                   <div className={`rounded-full p-2 glass-button ${
                     task.type === 'deadline' 
-                      ? 'text-blue-600' 
-                      : 'text-sky-400'
+                      ? 'text-rose-400' 
+                      : 'text-cyan-400'
                   }`}>
-                    {task.type === 'deadline' && <AlertCircle className="h-4 w-4" />}
-                    {task.type === 'event' && <Calendar className="h-4 w-4" />}
-                    {task.type === 'meeting' && <Users className="h-4 w-4" />}
+                    {task.type === 'deadline' && <AlertCircle className="h-5 w-5 medallion-glow" />}
+                    {task.type === 'event' && <Calendar className="h-5 w-5 medallion-glow" />}
+                    {task.type === 'meeting' && <Users className="h-5 w-5 medallion-glow" />}
                   </div>
                   <div>
                     <p className="text-sm font-medium text-white">{task.title}</p>
@@ -331,15 +339,15 @@ export default function DashboardPage() {
       {/* Quick Actions */}
       <div className="flex flex-wrap gap-4">
         <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white transition-all duration-300">
-          <Users className="mr-2 h-4 w-4" />
+          <Users className="mr-2 h-4 w-4 medallion-glow" />
           Add New Donor
         </Button>
         <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white transition-all duration-300">
-          <Calendar className="mr-2 h-4 w-4" />
+          <Calendar className="mr-2 h-4 w-4 medallion-glow" />
           Schedule Meeting
         </Button>
         <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white transition-all duration-300">
-          <Mail className="mr-2 h-4 w-4" />
+          <Mail className="mr-2 h-4 w-4 medallion-glow" />
           Send Email
         </Button>
       </div>

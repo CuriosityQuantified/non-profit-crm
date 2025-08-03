@@ -125,22 +125,29 @@
   }
   
   .glass-button {
-    @apply rounded-xl;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px) saturate(150%);
-    -webkit-backdrop-filter: blur(10px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply rounded-xl relative;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(10px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 
-      0 2px 8px 0 rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.2),
+      0 2px 8px 0 rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+    animation: subtle-glow 3s ease-in-out infinite alternate;
   }
   
   .dark .glass-button {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 
-      0 2px 8px 0 rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+      0 0 25px rgba(255, 255, 255, 0.25),
+      0 0 50px rgba(255, 255, 255, 0.08),
+      0 2px 8px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.3);
   }
   
   .glass-hover {
@@ -162,5 +169,50 @@
       0 12px 24px -4px rgba(0, 0, 0, 0.4),
       0 0 0 1px rgba(255, 255, 255, 0.15);
     transform: perspective(1000px) rotateX(-2deg) translateY(-4px) scale(1.01);
+  }
+  
+  @keyframes subtle-glow {
+    0% {
+      filter: brightness(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+    100% {
+      filter: brightness(1.1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    }
+  }
+  
+  .medallion-glow {
+    filter: 
+      drop-shadow(0 0 4px currentColor) 
+      drop-shadow(0 0 8px currentColor)
+      drop-shadow(0 0 12px currentColor)
+      drop-shadow(0 0 16px currentColor)
+      brightness(1.5)
+      saturate(1.5);
+    animation: neon-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes neon-pulse {
+    0%, 100% {
+      opacity: 0.9;
+      transform: scale(1);
+      filter: 
+        drop-shadow(0 0 4px currentColor) 
+        drop-shadow(0 0 8px currentColor)
+        drop-shadow(0 0 12px currentColor)
+        drop-shadow(0 0 16px currentColor)
+        brightness(1.5)
+        saturate(1.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+      filter: 
+        drop-shadow(0 0 6px currentColor) 
+        drop-shadow(0 0 12px currentColor)
+        drop-shadow(0 0 18px currentColor)
+        drop-shadow(0 0 24px currentColor)
+        brightness(2)
+        saturate(2);
+    }
   }
 }

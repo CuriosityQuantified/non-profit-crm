@@ -49,7 +49,7 @@ export default function RootLayout({
                       href="/dashboard"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <Home className="h-4 w-4" />
+                      <Home className="h-5 w-5 medallion-glow" />
                       <span>Dashboard</span>
                     </Link>
                     
@@ -57,7 +57,7 @@ export default function RootLayout({
                       href="/donors"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <Users className="h-4 w-4" />
+                      <Users className="h-5 w-5 medallion-glow" />
                       <span>Donors</span>
                     </Link>
                     
@@ -65,7 +65,7 @@ export default function RootLayout({
                       href="/board"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <UserCheck className="h-4 w-4" />
+                      <UserCheck className="h-5 w-5 medallion-glow" />
                       <span>Board</span>
                     </Link>
                     
@@ -73,7 +73,7 @@ export default function RootLayout({
                       href="/calendar"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <Calendar className="h-4 w-4" />
+                      <Calendar className="h-5 w-5 medallion-glow" />
                       <span>Calendar</span>
                     </Link>
                     
