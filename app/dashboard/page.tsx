@@ -117,7 +117,7 @@ export default function DashboardPage() {
         <h1 className="text-4xl font-bold tracking-tight text-white">
           Good morning, Alex
         </h1>
-        <p className="text-gray-300 mt-2">
+        <p className="text-white font-bold mt-2">
           Here's what needs your attention today, {formatDate(new Date())}
         </p>
       </div>
@@ -133,7 +133,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">{formatCurrency(metrics.totalRaised)}</div>
-            <div className="text-xs text-gray-400">
+            <div className="text-xs text-white font-bold">
               {percentOfGoal.toFixed(0)}% of {formatCurrency(metrics.monthlyGoal)} goal
             </div>
             <div className="mt-2 h-2 w-full rounded-full bg-white/10 overflow-hidden">
@@ -154,7 +154,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">{metrics.activeGivers}</div>
-            <p className="text-xs text-white/60 flex items-center">
+            <p className="text-xs text-white font-bold flex items-center">
               <ArrowUp className="h-3 w-3 mr-1 text-green-400" />
               +12 from last month
             </p>
@@ -170,7 +170,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">{formatCurrency(metrics.averageGift)}</div>
-            <p className="text-xs text-white/60 flex items-center">
+            <p className="text-xs text-white font-bold flex items-center">
               <ArrowUp className="h-3 w-3 mr-1 text-green-400" />
               +8.2% from last month
             </p>
@@ -186,7 +186,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-white">{todaysPriorities.length}</div>
-            <p className="text-xs text-white/60 flex items-center">
+            <p className="text-xs text-white font-bold flex items-center">
               <AlertCircle className="h-3 w-3 mr-1 text-blue-500" />
               2 high priority
             </p>
@@ -204,7 +204,7 @@ export default function DashboardPage() {
               </div>
               Today's Priorities
             </CardTitle>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-white font-bold">
               Most important donor interactions for today
             </CardDescription>
           </CardHeader>
@@ -224,7 +224,7 @@ export default function DashboardPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">{task.title}</p>
-                      <p className="text-sm text-gray-400 mt-1">
+                      <p className="text-sm text-white font-bold mt-1">
                         {task.amount && `Potential: ${formatCurrency(task.amount)}`}
                       </p>
                     </div>
@@ -251,7 +251,7 @@ export default function DashboardPage() {
               </div>
               Recent Donors
             </CardTitle>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-white font-bold">
               Latest contributions received
             </CardDescription>
           </CardHeader>
@@ -261,7 +261,7 @@ export default function DashboardPage() {
                 <div key={donor.id} className="group flex items-center justify-between p-4 rounded-xl glass-morphism dark:glass-morphism-dark hover:bg-white/30 dark:hover:bg-white/10 transition-all duration-300 cursor-pointer">
                   <div className="space-y-1">
                     <p className="text-sm font-medium text-white">{donor.name}</p>
-                    <p className="text-xs text-gray-400 flex items-center gap-1">
+                    <p className="text-xs text-white font-bold flex items-center gap-1">
                       {donor.organization ? (
                         <>
                           <Building2 className="h-3 w-3" />
@@ -276,7 +276,7 @@ export default function DashboardPage() {
                     <p className="text-sm font-bold text-emerald-400">
                       {formatCurrency(donor.amount)}
                     </p>
-                    <p className="text-xs text-gray-400 flex items-center justify-end">
+                    <p className="text-xs text-white font-bold flex items-center justify-end">
                       <Clock className="h-3 w-3 mr-1" />
                       {formatDate(donor.date)}
                     </p>
@@ -317,7 +317,7 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-white">{task.title}</p>
-                    <p className="text-xs text-gray-400 mt-1">
+                    <p className="text-xs text-white font-bold mt-1">
                       {formatDate(task.date)}
                     </p>
                   </div>

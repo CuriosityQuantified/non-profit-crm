@@ -33,9 +33,9 @@ export function DonorCard({ donor }: { donor: Donor }) {
   const isRecent = lastGiftDate && daysSince(lastGiftDate) < 90
   
   return (
-    <Card className="group p-6 hover:shadow-2xl transition-all duration-300 cursor-pointer border-gray-200/50 dark:border-gray-700/50 overflow-hidden relative">
+    <Card className="group p-6 glass-card apple-shadow hover:apple-shadow-hover transition-all duration-300 cursor-pointer overflow-hidden relative">
       {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       
       {/* Main info always visible */}
       <div className="flex justify-between items-start relative z-10">
@@ -49,21 +49,21 @@ export function DonorCard({ donor }: { donor: Donor }) {
               {organization ? (
                 <Building2 className="h-4 w-4 text-blue-600 dark:text-blue-400" />
               ) : (
-                <User className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                <User className="h-4 w-4 text-white" />
               )}
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <h3 className="font-bold text-white group-hover:text-emerald-400 transition-colors">
                 {name}
               </h3>
               {organization && (
-                <p className="text-sm text-gray-600 dark:text-gray-400">{organization}</p>
+                <p className="text-sm text-white font-bold">{organization}</p>
               )}
               {lastGiftDate && (
-                <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                <p className="text-xs text-white font-bold mt-1">
                   Last gift: {formatDate(lastGiftDate)}
                   {lastGiftAmount && (
-                    <span className="font-medium text-gray-700 dark:text-gray-300">
+                    <span className="font-bold text-white">
                       {' '}• {formatCurrency(lastGiftAmount)}
                     </span>
                   )}
@@ -75,7 +75,7 @@ export function DonorCard({ donor }: { donor: Donor }) {
         
         {/* Key metric prominent */}
         <div className="text-right ml-4">
-          <p className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+          <p className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
             {formatCurrency(totalGiven)}
           </p>
           <div className="flex items-center justify-end gap-1 mt-1">
@@ -88,8 +88,8 @@ export function DonorCard({ donor }: { donor: Donor }) {
               </>
             ) : (
               <>
-                <TrendingDown className="h-3 w-3 text-gray-400" />
-                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                <TrendingDown className="h-3 w-3 text-white" />
+                <span className="text-sm font-bold text-white">
                   Lapsed
                 </span>
               </>
