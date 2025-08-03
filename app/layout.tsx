@@ -35,11 +35,11 @@ export default function RootLayout({
         >
           <div className="min-h-screen gradient-bg">
             {/* Navigation */}
-            <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 shadow-sm">
+            <nav className="glass-morphism dark:glass-morphism-dark sticky top-0 z-50 border-b border-white/20 dark:border-white/10">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
-                    <h1 className="text-xl font-bold text-purple-600 dark:text-purple-400">
+                    <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                       City Tutors CRM
                     </h1>
                   </div>
@@ -47,7 +47,7 @@ export default function RootLayout({
                   <div className="flex items-center space-x-8">
                     <Link
                       href="/dashboard"
-                      className="flex items-center space-x-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+                      className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
                       <Home className="h-4 w-4" />
                       <span>Dashboard</span>
@@ -55,7 +55,7 @@ export default function RootLayout({
                     
                     <Link
                       href="/donors"
-                      className="flex items-center space-x-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+                      className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
                       <Users className="h-4 w-4" />
                       <span>Donors</span>
@@ -63,7 +63,7 @@ export default function RootLayout({
                     
                     <Link
                       href="/board"
-                      className="flex items-center space-x-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+                      className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
                       <UserCheck className="h-4 w-4" />
                       <span>Board</span>
@@ -71,7 +71,7 @@ export default function RootLayout({
                     
                     <Link
                       href="/calendar"
-                      className="flex items-center space-x-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+                      className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
                       <Calendar className="h-4 w-4" />
                       <span>Calendar</span>
