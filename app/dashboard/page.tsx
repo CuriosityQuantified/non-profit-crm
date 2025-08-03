@@ -124,70 +124,70 @@ export default function DashboardPage() {
 
       {/* Key Metrics */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="overflow-hidden border-purple-200 dark:border-purple-900/50 bg-purple-50 dark:bg-purple-950/20">
+        <Card className="overflow-hidden border-0 bg-purple-600 dark:bg-purple-700 shadow-[0_4px_12px_rgba(147,51,234,0.3)] transform hover:scale-105 transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-purple-900 dark:text-purple-100">Monthly Raised</CardTitle>
-            <div className="p-2 bg-purple-600 rounded-lg">
+            <CardTitle className="text-sm font-medium text-white">Monthly Raised</CardTitle>
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
               <DollarSign className="h-4 w-4 text-white" />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-purple-900 dark:text-purple-100">{formatCurrency(metrics.totalRaised)}</div>
-            <div className="text-xs text-purple-700 dark:text-purple-300">
+            <div className="text-2xl font-bold text-white">{formatCurrency(metrics.totalRaised)}</div>
+            <div className="text-xs text-white/80">
               {percentOfGoal.toFixed(0)}% of {formatCurrency(metrics.monthlyGoal)} goal
             </div>
-            <div className="mt-2 h-2 w-full rounded-full bg-purple-200 dark:bg-purple-900/50 overflow-hidden">
+            <div className="mt-2 h-2 w-full rounded-full bg-white/20 overflow-hidden">
               <div 
-                className="h-2 rounded-full bg-purple-600 dark:bg-purple-500 transition-all duration-1000 ease-out"
+                className="h-2 rounded-full bg-white/60 transition-all duration-1000 ease-out"
                 style={{ width: `${Math.min(percentOfGoal, 100)}%` }}
               />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden border-blue-200 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-950/20">
+        <Card className="overflow-hidden border-0 bg-blue-600 dark:bg-blue-700 shadow-[0_4px_12px_rgba(59,130,246,0.3)] transform hover:scale-105 transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-blue-900 dark:text-blue-100">Active Givers</CardTitle>
-            <div className="p-2 bg-blue-600 rounded-lg">
+            <CardTitle className="text-sm font-medium text-white">Active Givers</CardTitle>
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
               <Users className="h-4 w-4 text-white" />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-blue-900 dark:text-blue-100">{metrics.activeGivers}</div>
-            <p className="text-xs text-blue-700 dark:text-blue-300 flex items-center">
-              <ArrowUp className="h-3 w-3 mr-1 text-green-600 dark:text-green-400" />
+            <div className="text-2xl font-bold text-white">{metrics.activeGivers}</div>
+            <p className="text-xs text-white/80 flex items-center">
+              <ArrowUp className="h-3 w-3 mr-1 text-white" />
               +12 from last month
             </p>
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden border-green-200 dark:border-green-900/50 bg-green-50 dark:bg-green-950/20">
+        <Card className="overflow-hidden border-0 bg-green-600 dark:bg-green-700 shadow-[0_4px_12px_rgba(34,197,94,0.3)] transform hover:scale-105 transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-green-900 dark:text-green-100">Average Gift</CardTitle>
-            <div className="p-2 bg-green-600 rounded-lg">
+            <CardTitle className="text-sm font-medium text-white">Average Gift</CardTitle>
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
               <TrendingUp className="h-4 w-4 text-white" />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-900 dark:text-green-100">{formatCurrency(metrics.averageGift)}</div>
-            <p className="text-xs text-green-700 dark:text-green-300 flex items-center">
-              <ArrowUp className="h-3 w-3 mr-1 text-green-600 dark:text-green-400" />
+            <div className="text-2xl font-bold text-white">{formatCurrency(metrics.averageGift)}</div>
+            <p className="text-xs text-white/80 flex items-center">
+              <ArrowUp className="h-3 w-3 mr-1 text-white" />
               +8.2% from last month
             </p>
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-950/20">
+        <Card className="overflow-hidden border-0 bg-orange-600 dark:bg-orange-700 shadow-[0_4px_12px_rgba(251,146,60,0.3)] transform hover:scale-105 transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-orange-900 dark:text-orange-100">Tasks Today</CardTitle>
-            <div className="p-2 bg-orange-600 rounded-lg">
+            <CardTitle className="text-sm font-medium text-white">Tasks Today</CardTitle>
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
               <Calendar className="h-4 w-4 text-white" />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-orange-900 dark:text-orange-100">{todaysPriorities.length}</div>
-            <p className="text-xs text-orange-700 dark:text-orange-300 flex items-center">
-              <AlertCircle className="h-3 w-3 mr-1 text-red-600 dark:text-red-400" />
+            <div className="text-2xl font-bold text-white">{todaysPriorities.length}</div>
+            <p className="text-xs text-white/80 flex items-center">
+              <AlertCircle className="h-3 w-3 mr-1 text-white" />
               2 high priority
             </p>
           </CardContent>
@@ -196,13 +196,13 @@ export default function DashboardPage() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
         {/* Today's Priorities */}
-        <Card className="col-span-4 overflow-hidden border-gray-300 dark:border-gray-600">
-          <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-            <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-gray-100">
-              <Target className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+        <Card className="col-span-4 overflow-hidden border-0 shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] transform hover:scale-[1.02] transition-all duration-300">
+          <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-700 dark:to-pink-700">
+            <CardTitle className="flex items-center gap-2 text-white">
+              <Target className="h-5 w-5 text-white" />
               Today's Priorities
             </CardTitle>
-            <CardDescription className="text-gray-600 dark:text-gray-400">
+            <CardDescription className="text-white/80">
               Most important donor interactions for today
             </CardDescription>
           </CardHeader>
@@ -229,8 +229,7 @@ export default function DashboardPage() {
                   </div>
                   <Button 
                     size="sm" 
-                    variant="outline"
-                    className="border-gray-300 dark:border-gray-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:border-purple-300 dark:hover:border-purple-700"
+                    className="bg-white/90 dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                   >
                     <CheckCircle2 className="mr-1 h-3 w-3" />
                     Complete
@@ -242,13 +241,13 @@ export default function DashboardPage() {
         </Card>
 
         {/* Recent Donors */}
-        <Card className="col-span-3 overflow-hidden border-gray-300 dark:border-gray-600">
-          <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-            <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-gray-100">
-              <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+        <Card className="col-span-3 overflow-hidden border-0 shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] transform hover:scale-[1.02] transition-all duration-300">
+          <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-700 dark:to-cyan-700">
+            <CardTitle className="flex items-center gap-2 text-white">
+              <Users className="h-5 w-5 text-white" />
               Recent Donors
             </CardTitle>
-            <CardDescription className="text-gray-600 dark:text-gray-400">
+            <CardDescription className="text-white/80">
               Latest contributions received
             </CardDescription>
           </CardHeader>
@@ -286,13 +285,13 @@ export default function DashboardPage() {
       </div>
 
       {/* Upcoming Tasks */}
-      <Card className="overflow-hidden border-gray-300 dark:border-gray-600">
-        <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-          <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-gray-100">
-            <Calendar className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+      <Card className="overflow-hidden border-0 shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] transform hover:scale-[1.01] transition-all duration-300">
+        <CardHeader className="border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-orange-600 to-red-600 dark:from-orange-700 dark:to-red-700">
+          <CardTitle className="flex items-center gap-2 text-white">
+            <Calendar className="h-5 w-5 text-white" />
             Upcoming This Week
           </CardTitle>
-          <CardDescription className="text-gray-600 dark:text-gray-400">
+          <CardDescription className="text-white/80">
             Important dates and deadlines
           </CardDescription>
         </CardHeader>
@@ -325,15 +324,15 @@ export default function DashboardPage() {
 
       {/* Quick Actions */}
       <div className="flex flex-wrap gap-4">
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white shadow-md hover:shadow-lg transition-all duration-300">
+        <Button className="bg-purple-600 hover:bg-purple-700 text-white shadow-[0_4px_12px_rgba(147,51,234,0.3)] hover:shadow-[0_6px_16px_rgba(147,51,234,0.4)] transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300">
           <Users className="mr-2 h-4 w-4" />
           Add New Donor
         </Button>
-        <Button variant="outline" className="border-2 border-gray-300 dark:border-gray-600 hover:border-purple-400 dark:hover:border-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+        <Button className="bg-gray-600 hover:bg-gray-700 text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.3)] transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300">
           <Calendar className="mr-2 h-4 w-4" />
           Schedule Meeting
         </Button>
-        <Button variant="outline" className="border-2 border-gray-300 dark:border-gray-600 hover:border-purple-400 dark:hover:border-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+        <Button className="bg-gray-600 hover:bg-gray-700 text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.3)] transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300">
           <Mail className="mr-2 h-4 w-4" />
           Send Email
         </Button>
