@@ -830,14 +830,14 @@ export default function DonorsPage() {
                             onChange={(e) => setQuickNote(e.target.value)}
                             placeholder="Add a quick note..."
                             className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold"
-                            onKeyPress={(e) => e.key === 'Enter' && handleAddQuickNote()}
+                            onKeyDown={(e) => e.key === 'Enter' && handleAddQuickNote()}
                           />
                           <Button
                             onClick={handleAddQuickNote}
-                            className="glass-button"
+                            className="glass-button group hover:scale-110 active:scale-95 transition-all duration-200"
                             disabled={!quickNote.trim()}
                           >
-                            <Plus className="h-4 w-4 text-white" />
+                            <Plus className="h-4 w-4 text-white group-hover:text-emerald-400 medallion-glow transition-all duration-200" />
                           </Button>
                         </div>
                       </>
@@ -896,14 +896,14 @@ export default function DonorsPage() {
                             onChange={(e) => setQuickPlan(e.target.value)}
                             placeholder="Add a quick plan..."
                             className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold"
-                            onKeyPress={(e) => e.key === 'Enter' && handleAddQuickPlan()}
+                            onKeyDown={(e) => e.key === 'Enter' && handleAddQuickPlan()}
                           />
                           <Button
                             onClick={handleAddQuickPlan}
-                            className="glass-button"
+                            className="glass-button group hover:scale-110 active:scale-95 transition-all duration-200"
                             disabled={!quickPlan.trim()}
                           >
-                            <Plus className="h-4 w-4 text-white" />
+                            <Plus className="h-4 w-4 text-white group-hover:text-emerald-400 medallion-glow transition-all duration-200" />
                           </Button>
                         </div>
                         
@@ -916,14 +916,14 @@ export default function DonorsPage() {
                               onChange={(e) => setNewCalendarItem({...newCalendarItem, title: e.target.value})}
                               placeholder="Event title..."
                               className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold flex-1"
-                              onKeyPress={(e) => e.key === 'Enter' && handleAddCalendarItem()}
+                              onKeyDown={(e) => e.key === 'Enter' && handleAddCalendarItem()}
                             />
                             <Input
                               type="date"
                               value={newCalendarItem.date}
                               onChange={(e) => setNewCalendarItem({...newCalendarItem, date: e.target.value})}
                               className="glass-morphism border-white/20 text-white font-bold w-40"
-                              onKeyPress={(e) => e.key === 'Enter' && handleAddCalendarItem()}
+                              onKeyDown={(e) => e.key === 'Enter' && handleAddCalendarItem()}
                             />
                             <select
                               value={newCalendarItem.type}
@@ -937,10 +937,10 @@ export default function DonorsPage() {
                             </select>
                             <Button
                               onClick={handleAddCalendarItem}
-                              className="glass-button px-3"
+                              className="glass-button px-3 group hover:scale-110 active:scale-95 transition-all duration-200"
                               disabled={!newCalendarItem.title.trim() || !newCalendarItem.date}
                             >
-                              <Plus className="h-4 w-4 text-white" />
+                              <Plus className="h-4 w-4 text-white group-hover:text-emerald-400 medallion-glow transition-all duration-200" />
                             </Button>
                           </div>
                         </div>
@@ -986,14 +986,14 @@ export default function DonorsPage() {
                         onChange={(e) => setNewNote(e.target.value)}
                         placeholder="Add a quick note..."
                         className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold"
-                        onKeyPress={(e) => e.key === 'Enter' && handleAddNote()}
+                        onKeyDown={(e) => e.key === 'Enter' && handleAddNote()}
                       />
                       <Button
                         onClick={handleAddNote}
-                        className="glass-button"
+                        className="glass-button group hover:scale-110 active:scale-95 transition-all duration-200"
                         disabled={!newNote.trim()}
                       >
-                        <Plus className="h-4 w-4 text-white" />
+                        <Plus className="h-4 w-4 text-white group-hover:text-emerald-400 medallion-glow transition-all duration-200" />
                       </Button>
                     </div>
                   </div>
