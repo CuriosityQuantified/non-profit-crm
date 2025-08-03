@@ -915,31 +915,32 @@ export default function DonorsPage() {
                               value={newCalendarItem.title}
                               onChange={(e) => setNewCalendarItem({...newCalendarItem, title: e.target.value})}
                               placeholder="Event title..."
-                              className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold col-span-6"
+                              className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold col-span-5"
+                              onKeyPress={(e) => e.key === 'Enter' && handleAddCalendarItem()}
                             />
                             <Input
                               type="date"
                               value={newCalendarItem.date}
                               onChange={(e) => setNewCalendarItem({...newCalendarItem, date: e.target.value})}
-                              className="glass-morphism border-white/20 text-white font-bold col-span-3"
+                              className="glass-morphism border-white/20 text-white font-bold col-span-4"
+                              onKeyPress={(e) => e.key === 'Enter' && handleAddCalendarItem()}
                             />
                             <select
                               value={newCalendarItem.type}
-                              onChange={(e) => setNewCalendarItem({...newCalendarItem, type: e.target.value as any})}
-                              className="px-3 py-2 rounded-md border border-white/20 bg-white/5 text-white font-bold col-span-2"
+                              onChange={(e) => {
+                                setNewCalendarItem({...newCalendarItem, type: e.target.value as any});
+                                // Auto-submit when all fields are filled
+                                if (newCalendarItem.title.trim() && newCalendarItem.date) {
+                                  setTimeout(() => handleAddCalendarItem(), 100);
+                                }
+                              }}
+                              className="px-3 py-2 rounded-md border border-white/20 bg-white/5 text-white font-bold col-span-3"
                             >
                               <option value="reminder">Reminder</option>
                               <option value="meeting">Meeting</option>
                               <option value="deadline">Deadline</option>
                               <option value="event">Event</option>
                             </select>
-                            <Button
-                              onClick={handleAddCalendarItem}
-                              className="glass-button col-span-1"
-                              disabled={!newCalendarItem.title.trim() || !newCalendarItem.date}
-                            >
-                              <Plus className="h-4 w-4 text-white" />
-                            </Button>
                           </div>
                         </div>
                       </>
