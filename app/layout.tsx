@@ -7,9 +7,8 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Link from "next/link"
-import { Home, Users, UserCheck, Calendar } from "lucide-react"
+import { Home, Users, UserCheck, Calendar, User } from "lucide-react"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ThemeToggle } from "@/components/theme-toggle"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -44,12 +43,12 @@ export default function RootLayout({
                     </h1>
                   </div>
                   
-                  <div className="flex items-center space-x-8">
+                  <div className="flex items-center gap-8">
                     <Link
                       href="/dashboard"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <Home className="h-5 w-5 medallion-glow" />
+                      <Home className="h-5 w-5 text-emerald-400 medallion-glow" />
                       <span>Dashboard</span>
                     </Link>
                     
@@ -57,7 +56,7 @@ export default function RootLayout({
                       href="/donors"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <Users className="h-5 w-5 medallion-glow" />
+                      <Users className="h-5 w-5 text-sky-400 medallion-glow" />
                       <span>Donors</span>
                     </Link>
                     
@@ -65,7 +64,7 @@ export default function RootLayout({
                       href="/board"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <UserCheck className="h-5 w-5 medallion-glow" />
+                      <UserCheck className="h-5 w-5 text-teal-400 medallion-glow" />
                       <span>Board</span>
                     </Link>
                     
@@ -73,11 +72,13 @@ export default function RootLayout({
                       href="/calendar"
                       className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
                     >
-                      <Calendar className="h-5 w-5 medallion-glow" />
+                      <Calendar className="h-5 w-5 text-cyan-400 medallion-glow" />
                       <span>Calendar</span>
                     </Link>
                     
-                    <ThemeToggle />
+                    <button className="relative h-9 w-9 rounded-full glass-button glass-hover flex items-center justify-center">
+                      <User className="h-5 w-5 text-emerald-400 medallion-glow" />
+                    </button>
                   </div>
                 </div>
               </div>

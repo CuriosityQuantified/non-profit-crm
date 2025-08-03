@@ -126,27 +126,27 @@
   
   .glass-button {
     @apply rounded-xl relative;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px) saturate(200%);
-    -webkit-backdrop-filter: blur(10px) saturate(200%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 
-      0 0 30px rgba(255, 255, 255, 0.4),
-      0 0 60px rgba(255, 255, 255, 0.2),
+      0 0 15px rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(255, 255, 255, 0.1),
       0 2px 8px 0 rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
       inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
     animation: subtle-glow 3s ease-in-out infinite alternate;
   }
   
   .dark .glass-button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 
-      0 0 25px rgba(255, 255, 255, 0.25),
-      0 0 50px rgba(255, 255, 255, 0.08),
+      0 0 12px rgba(255, 255, 255, 0.15),
+      0 0 25px rgba(255, 255, 255, 0.05),
       0 2px 8px 0 rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
       inset 0 -1px 0 0 rgba(0, 0, 0, 0.3);
   }
   
@@ -173,46 +173,43 @@
   
   @keyframes subtle-glow {
     0% {
-      filter: brightness(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+      filter: brightness(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.15));
     }
     100% {
-      filter: brightness(1.1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+      filter: brightness(1.05) drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
     }
   }
   
   .medallion-glow {
     filter: 
-      drop-shadow(0 0 4px currentColor) 
-      drop-shadow(0 0 8px currentColor)
-      drop-shadow(0 0 12px currentColor)
-      drop-shadow(0 0 16px currentColor)
-      brightness(1.5)
-      saturate(1.5);
-    animation: neon-pulse 2s ease-in-out infinite;
+      drop-shadow(0 0 2px currentColor) 
+      drop-shadow(0 0 4px currentColor)
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.3))
+      brightness(1.2)
+      saturate(1.2);
+    animation: jewel-pulse 2s ease-in-out infinite;
   }
   
-  @keyframes neon-pulse {
+  @keyframes jewel-pulse {
     0%, 100% {
-      opacity: 0.9;
+      opacity: 0.95;
       transform: scale(1);
       filter: 
-        drop-shadow(0 0 4px currentColor) 
-        drop-shadow(0 0 8px currentColor)
-        drop-shadow(0 0 12px currentColor)
-        drop-shadow(0 0 16px currentColor)
-        brightness(1.5)
-        saturate(1.5);
+        drop-shadow(0 0 2px currentColor) 
+        drop-shadow(0 0 4px currentColor)
+        drop-shadow(0 0 6px rgba(255, 255, 255, 0.3))
+        brightness(1.2)
+        saturate(1.2);
     }
     50% {
       opacity: 1;
-      transform: scale(1.1);
+      transform: scale(1.05);
       filter: 
-        drop-shadow(0 0 6px currentColor) 
-        drop-shadow(0 0 12px currentColor)
-        drop-shadow(0 0 18px currentColor)
-        drop-shadow(0 0 24px currentColor)
-        brightness(2)
-        saturate(2);
+        drop-shadow(0 0 3px currentColor) 
+        drop-shadow(0 0 6px currentColor)
+        drop-shadow(0 0 9px rgba(255, 255, 255, 0.4))
+        brightness(1.3)
+        saturate(1.3);
     }
   }
 }
