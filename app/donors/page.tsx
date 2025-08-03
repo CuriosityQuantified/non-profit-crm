@@ -41,6 +41,12 @@ interface ExtendedDonor extends Donor {
     summary: string
   }>
   plans?: string
+  calendarItems?: Array<{
+    id: number
+    date: Date
+    title: string
+    type: 'meeting' | 'deadline' | 'event' | 'reminder'
+  }>
 }
 
 // Hardcoded donor data with notes
@@ -60,7 +66,12 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2024-01-10"), type: "call", summary: "Discussed impact of her previous donations" },
       { id: 3, date: new Date("2023-12-05"), type: "meeting", summary: "Annual donor appreciation dinner - brought her daughter" }
     ],
-    plans: "Schedule quarterly check-ins. Invite to student showcase in March."
+    plans: "Schedule quarterly check-ins. Invite to student showcase in March.",
+    calendarItems: [
+      { id: 1, date: new Date("2024-03-15"), title: "Student Showcase - Invite Sarah", type: "event" },
+      { id: 2, date: new Date("2024-04-01"), title: "Q2 Check-in Call", type: "meeting" },
+      { id: 3, date: new Date("2024-05-10"), title: "Send impact report", type: "deadline" }
+    ]
   },
   {
     id: 2,
@@ -77,7 +88,12 @@ const donors: ExtendedDonor[] = [
       { id: 2, date: new Date("2024-01-05"), type: "email", summary: "Sent proposal for tech mentorship program" },
       { id: 3, date: new Date("2023-11-15"), type: "meeting", summary: "Tour of tutoring facilities with his team" }
     ],
-    plans: "Propose partnership for summer coding camp. Connect with our IT needs assessment."
+    plans: "Propose partnership for summer coding camp. Connect with our IT needs assessment.",
+    calendarItems: [
+      { id: 1, date: new Date("2024-02-20"), title: "Present coding camp proposal", type: "meeting" },
+      { id: 2, date: new Date("2024-03-05"), title: "IT infrastructure meeting", type: "meeting" },
+      { id: 3, date: new Date("2024-06-01"), title: "Summer coding camp launch", type: "event" }
+    ]
   },
   {
     id: 3,
@@ -403,6 +419,9 @@ export default function DonorsPage() {
   const [isEditing, setIsEditing] = useState(false)
   const [editedDonor, setEditedDonor] = useState<ExtendedDonor | null>(null)
   const [newNote, setNewNote] = useState("")
+  const [quickNote, setQuickNote] = useState("")
+  const [quickPlan, setQuickPlan] = useState("")
+  const [newCalendarItem, setNewCalendarItem] = useState({ title: "", date: "", type: "reminder" as const })
 
   // Debug effect to monitor selectedDonor changes
   useEffect(() => {
@@ -472,6 +491,66 @@ export default function DonorsPage() {
       }
       
       setNewNote("")
+    }
+  }
+
+  const handleAddQuickNote = () => {
+    if (quickNote.trim() && selectedDonor) {
+      const updatedDonor = {
+        ...selectedDonor,
+        notes: selectedDonor.notes ? `${selectedDonor.notes}\n\n${new Date().toLocaleDateString()}: ${quickNote}` : `${new Date().toLocaleDateString()}: ${quickNote}`
+      }
+      
+      const index = donors.findIndex(d => d.id === selectedDonor.id)
+      if (index !== -1) {
+        donors[index] = updatedDonor
+        setSelectedDonor(updatedDonor)
+        setEditedDonor(updatedDonor)
+      }
+      
+      setQuickNote("")
+    }
+  }
+
+  const handleAddQuickPlan = () => {
+    if (quickPlan.trim() && selectedDonor) {
+      const updatedDonor = {
+        ...selectedDonor,
+        plans: selectedDonor.plans ? `${selectedDonor.plans}\n• ${quickPlan}` : `• ${quickPlan}`
+      }
+      
+      const index = donors.findIndex(d => d.id === selectedDonor.id)
+      if (index !== -1) {
+        donors[index] = updatedDonor
+        setSelectedDonor(updatedDonor)
+        setEditedDonor(updatedDonor)
+      }
+      
+      setQuickPlan("")
+    }
+  }
+
+  const handleAddCalendarItem = () => {
+    if (newCalendarItem.title.trim() && newCalendarItem.date && selectedDonor) {
+      const calendarItem = {
+        id: Date.now(),
+        date: new Date(newCalendarItem.date),
+        title: newCalendarItem.title,
+        type: newCalendarItem.type
+      }
+      
+      const updatedDonor = {
+        ...selectedDonor,
+        calendarItems: [...(selectedDonor.calendarItems || []), calendarItem].sort((a, b) => a.date.getTime() - b.date.getTime())
+      }
+      
+      const index = donors.findIndex(d => d.id === selectedDonor.id)
+      if (index !== -1) {
+        donors[index] = updatedDonor
+        setSelectedDonor(updatedDonor)
+      }
+      
+      setNewCalendarItem({ title: "", date: "", type: "reminder" })
     }
   }
 
@@ -741,9 +820,27 @@ export default function DonorsPage() {
                         placeholder="Add notes about this donor..."
                       />
                     ) : (
-                      <p className="text-white/90 p-3 rounded-lg glass-morphism">
-                        {selectedDonor.notes || 'No notes yet.'}
-                      </p>
+                      <>
+                        <p className="text-white/90 p-3 rounded-lg glass-morphism mb-3 whitespace-pre-line">
+                          {selectedDonor.notes || 'No notes yet.'}
+                        </p>
+                        <div className="flex gap-2">
+                          <Input
+                            value={quickNote}
+                            onChange={(e) => setQuickNote(e.target.value)}
+                            placeholder="Add a quick note..."
+                            className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold"
+                            onKeyPress={(e) => e.key === 'Enter' && handleAddQuickNote()}
+                          />
+                          <Button
+                            onClick={handleAddQuickNote}
+                            className="glass-button"
+                            disabled={!quickNote.trim()}
+                          >
+                            <Plus className="h-4 w-4 text-white" />
+                          </Button>
+                        </div>
+                      </>
                     )}
                   </div>
 
@@ -751,8 +848,34 @@ export default function DonorsPage() {
                   <div>
                     <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                       <Target className="h-5 w-5 text-teal-400" />
-                      Plans
+                      Plans & Calendar
                     </h3>
+                    
+                    {/* Calendar Items */}
+                    {selectedDonor.calendarItems && selectedDonor.calendarItems.length > 0 && (
+                      <div className="mb-3 space-y-2">
+                        {selectedDonor.calendarItems.map((item) => (
+                          <div key={item.id} className="p-3 rounded-lg glass-morphism flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <div className={`p-1.5 rounded glass-button ${
+                                item.type === 'meeting' ? 'text-teal-400' :
+                                item.type === 'deadline' ? 'text-rose-400' :
+                                item.type === 'event' ? 'text-emerald-400' :
+                                'text-sky-400'
+                              }`}>
+                                <Calendar className="h-4 w-4" />
+                              </div>
+                              <div>
+                                <p className="text-white text-sm font-bold">{item.title}</p>
+                                <p className="text-xs text-white/60">{formatDate(item.date)} • {item.type}</p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    
+                    {/* Plans Text */}
                     {isEditing ? (
                       <Textarea
                         value={editedDonor?.plans || ''}
@@ -761,9 +884,65 @@ export default function DonorsPage() {
                         placeholder="Future plans for this donor..."
                       />
                     ) : (
-                      <p className="text-white/90 p-3 rounded-lg glass-morphism">
-                        {selectedDonor.plans || 'No plans documented.'}
-                      </p>
+                      <>
+                        <p className="text-white/90 p-3 rounded-lg glass-morphism mb-3 whitespace-pre-line">
+                          {selectedDonor.plans || 'No plans documented.'}
+                        </p>
+                        
+                        {/* Quick Add Plan */}
+                        <div className="flex gap-2 mb-3">
+                          <Input
+                            value={quickPlan}
+                            onChange={(e) => setQuickPlan(e.target.value)}
+                            placeholder="Add a quick plan..."
+                            className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold"
+                            onKeyPress={(e) => e.key === 'Enter' && handleAddQuickPlan()}
+                          />
+                          <Button
+                            onClick={handleAddQuickPlan}
+                            className="glass-button"
+                            disabled={!quickPlan.trim()}
+                          >
+                            <Plus className="h-4 w-4 text-white" />
+                          </Button>
+                        </div>
+                        
+                        {/* Add Calendar Item */}
+                        <div className="space-y-2 p-3 rounded-lg glass-morphism">
+                          <p className="text-xs text-white/80 font-bold">Add Calendar Item:</p>
+                          <div className="flex gap-2">
+                            <Input
+                              value={newCalendarItem.title}
+                              onChange={(e) => setNewCalendarItem({...newCalendarItem, title: e.target.value})}
+                              placeholder="Event title..."
+                              className="glass-morphism border-white/20 text-white placeholder:text-white/60 font-bold flex-1"
+                            />
+                            <Input
+                              type="date"
+                              value={newCalendarItem.date}
+                              onChange={(e) => setNewCalendarItem({...newCalendarItem, date: e.target.value})}
+                              className="glass-morphism border-white/20 text-white font-bold"
+                            />
+                            <select
+                              value={newCalendarItem.type}
+                              onChange={(e) => setNewCalendarItem({...newCalendarItem, type: e.target.value as any})}
+                              className="px-3 py-2 rounded-md border border-white/20 bg-white/5 text-white font-bold"
+                            >
+                              <option value="reminder">Reminder</option>
+                              <option value="meeting">Meeting</option>
+                              <option value="deadline">Deadline</option>
+                              <option value="event">Event</option>
+                            </select>
+                            <Button
+                              onClick={handleAddCalendarItem}
+                              className="glass-button"
+                              disabled={!newCalendarItem.title.trim() || !newCalendarItem.date}
+                            >
+                              <Plus className="h-4 w-4 text-white" />
+                            </Button>
+                          </div>
+                        </div>
+                      </>
                     )}
                   </div>
 
