@@ -7,9 +7,10 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Link from "next/link"
-import { Home, Users, UserCheck, Calendar, DollarSign, User } from "lucide-react"
+import { Home, Users, UserCheck, Calendar, DollarSign } from "lucide-react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AIAssistantButton } from "@/components/ai-assistant-button"
+import { ProfileDropdown } from "@/components/profile-dropdown"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -85,9 +86,7 @@ export default function RootLayout({
                       <span>Finances</span>
                     </Link>
                     
-                    <button className="relative h-9 w-9 rounded-full glass-button glass-hover flex items-center justify-center">
-                      <User className="h-5 w-5 text-emerald-400 medallion-glow" />
-                    </button>
+                    <ProfileDropdown />
                   </div>
                 </div>
               </div>
