@@ -336,21 +336,6 @@ export default function DashboardPage() {
         </CardContent>
       </Card>
 
-      {/* Quick Actions */}
-      <div className="flex flex-wrap gap-4">
-        <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white transition-all duration-300">
-          <Users className="mr-2 h-4 w-4 medallion-glow" />
-          Add New Donor
-        </Button>
-        <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white transition-all duration-300">
-          <Calendar className="mr-2 h-4 w-4 medallion-glow" />
-          Schedule Meeting
-        </Button>
-        <Button className="glass-button glass-hover apple-shadow hover:apple-shadow-hover text-white transition-all duration-300">
-          <Mail className="mr-2 h-4 w-4 medallion-glow" />
-          Send Email
-        </Button>
-      </div>
     </div>
   )
 }
