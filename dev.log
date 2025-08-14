@@ -1,0 +1,24 @@
+
+> city-tutors-crm@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+  ▲ Next.js 14.2.0
+  - Local:        http://localhost:3002
+
+ ✓ Starting...
+ ✓ Ready in 1001ms
+ ○ Compiling /board ...
+ ✓ Compiled /board in 1678ms (730 modules)
+ GET /board 200 in 1810ms
+ ✓ Compiled in 130ms (365 modules)
+ ✓ Compiled /dashboard in 180ms (725 modules)
+ GET /dashboard 200 in 229ms
+ ✓ Compiled /donors in 99ms (743 modules)
+ GET /donors 200 in 139ms
+ ✓ Compiled / in 64ms (752 modules)
+ GET / 307 in 108ms
+ GET /board 200 in 38ms
+ GET /board 200 in 19ms
+[?25h

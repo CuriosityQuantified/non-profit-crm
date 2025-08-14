@@ -7,8 +7,9 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Link from "next/link"
-import { Home, Users, UserCheck, Calendar, User } from "lucide-react"
+import { Home, Users, UserCheck, Calendar, DollarSign, User } from "lucide-react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AIAssistantButton } from "@/components/ai-assistant-button"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -76,6 +77,14 @@ export default function RootLayout({
                       <span>Calendar</span>
                     </Link>
                     
+                    <Link
+                      href="/finances"
+                      className="flex items-center space-x-2 text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors duration-200"
+                    >
+                      <DollarSign className="h-5 w-5 text-green-400 medallion-glow" />
+                      <span>Finances</span>
+                    </Link>
+                    
                     <button className="relative h-9 w-9 rounded-full glass-button glass-hover flex items-center justify-center">
                       <User className="h-5 w-5 text-emerald-400 medallion-glow" />
                     </button>
@@ -88,6 +97,9 @@ export default function RootLayout({
             <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
               {children}
             </main>
+            
+            {/* AI Assistant Button */}
+            <AIAssistantButton />
           </div>
         </ThemeProvider>
       </body>
